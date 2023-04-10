@@ -1,4 +1,7 @@
 # Parallel text generator
+
+![Schopenhauer 'Aphorismen' demo](/screenshots/germanDemo.png)
+
 Given a .epub file, you can use this project to generate a parallel translation
 ## Prequesiteries: 
 - Linux environment (native, WSL, ...)
