@@ -34,3 +34,6 @@ Lastly, generate the result pdf with the following commands:
 zip -r mergedBook.epub mergedBook
 ebook-convert mergedBook.epub mergedBook.pdf
 ```
+# Explanation
+
+How this project works: add_taggings.py marks each paragraph with its own unique identifier. The content of the paragraphs is then translated, but the markings still stay the same. merge.py finds the corresponding paragraphs and combines them inside of a table in the result book. 
