@@ -4,6 +4,8 @@
 
 Given a .epub file, you can use this project to generate a parallel translation
 
+**Note: the old version gives the user more control, as it is much more manual: https://github.com/baroxyton/parallel-translation-generator/tree/fa3436509671ed33a6532ec5872ecaa5cadab3a9. It may be useful for troubleshooting when this script doesn't work as expected**
+
 ## Prequesiteries: 
 - Linux environment (native, WSL, ...)
 - Bash shell
