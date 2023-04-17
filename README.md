@@ -28,7 +28,7 @@ run `python v2.py` and supervise the process. File paths requested can be provid
 - The tool may not work for all .epub files due to their format or encoding. When not working as expected, using the old version may work as it allows more troubleshooting: https://github.com/baroxyton/parallel-translation-generator/tree/fa3436509671ed33a6532ec5872ecaa5cadab3a9
 
 ## Credits
-This project is developed by baroxyton and is open-source under the CC0 License. Contributions are welcome.
+This project is developed by baroxyton and is open-source and public domain under the CC0 License. Contributions are welcome.
 
 ## Disclaimer
 
