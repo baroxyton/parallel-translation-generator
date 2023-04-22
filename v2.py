@@ -34,7 +34,9 @@ for element in containerData:
 print(rootDir)
 # Give each paragraph an unique UUID
 text_content = ""
+progress=0
 for htmlFile in html_files:
+    print(f'HTML marking progress: {progress}/{len(html_files)}')
     rawContents = open("unzippedBook/" + rootDir + "/" + htmlFile, 'r').read()
     parsedContents = BeautifulSoup(rawContents, 'html.parser')
     for tag in parsedContents.find_all(['h1', 'p']):
@@ -48,13 +50,14 @@ for htmlFile in html_files:
         new_contents = BeautifulSoup(tag_content, 'html.parser')
         tag.clear()
         tag.append(new_contents)
-        head = parsedContents.find("head");
-        new_style = parsedContents.new_tag("style");
-        new_style.string = "td{border: 1px solid black}"
-        new_style["id"] = "translate-style";
-        head.append(new_style);
         text_content += tag.text.replace("\n", "\n\n")
-        open("unzippedBook/" + rootDir + "/" + htmlFile, 'w').write(str(parsedContents))
+    head = parsedContents.find("head");
+    new_style = parsedContents.new_tag("style");
+    new_style.string = "td{border: 1px solid black}"
+    new_style["id"] = "translate-style";
+    head.append(new_style);
+    open("unzippedBook/" + rootDir + "/" + htmlFile, 'w').write(str(parsedContents))
+    progress += 1
 open("untranslatedMarked.txt", "w").write(text_content)
 subprocess.call(["pandoc", "-s", "untranslatedMarked.txt", "-o", "untranslatedMarked.docx"])
 print("A new file untranslatedMarked.docx has been created in the working directory. Please open translate.google.com and translate this document. Then download the translated version and enter the path to the downloaded version below.")
