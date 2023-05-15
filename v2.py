@@ -39,7 +39,7 @@ for htmlFile in html_files:
     print(f'HTML marking progress: {progress}/{len(html_files)}')
     rawContents = open("unzippedBook/" + rootDir + "/" + htmlFile, 'r').read()
     parsedContents = BeautifulSoup(rawContents, 'html.parser')
-    for tag in parsedContents.find_all(['h1', 'p']):
+    for tag in parsedContents.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div']):
         paragraphs = split_string_by_word_count(tag.decode_contents(), 50)
         tag_content = ""
         for paragraph in paragraphs:
