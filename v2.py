@@ -8,9 +8,18 @@ import re
 def split_string_by_word_count(text, count):
     words = text.split()
     result = []
-    for i in range(0, len(words), count):
-        result.append(" ".join(words[i:i+count]))
+    temp = []
+    open_tag = 0
+    for word in words:
+        open_tag += word.count('<') - word.count('>')
+        temp.append(word)
+        if len(temp) >= count and open_tag <= 0:
+            result.append(" ".join(temp))
+            temp = []
+    if temp:
+        result.append(" ".join(temp))
     return result
+
 # Get book
 book = input("Filename/path of the book (must be epub): ")
 opf_content = str(epub_meta.get_epub_opf_xml(book)).split('<');
